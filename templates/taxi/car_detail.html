@@ -11,7 +11,7 @@
   </ul>
   <h2>Drivers</h2>
     <ul class="list">
-      {% for driver in car.drivers.filter %}
+      {% for driver in car.drivers.all %}
          <li class="list-item">
             <a href="{% url 'taxi:driver-detail' driver.id %}">{{ driver.first_name }} {{ driver.last_name }}</a>
         </li>

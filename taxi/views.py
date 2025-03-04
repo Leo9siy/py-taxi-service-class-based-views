@@ -20,7 +20,7 @@ def index(request):
 
 class ManufacturerListView(ListView):
     model = Manufacturer
-    QuerySet = Manufacturer.objects.order_by("name")
+    queryset = Manufacturer.objects.order_by("name")
     paginate_by = 5
     ordering = "name"
 
@@ -28,7 +28,7 @@ class ManufacturerListView(ListView):
 class CarListView(ListView):
     model = Car
     paginate_by = 5
-    QuerySet = Car.objects.select_related("manufacturer")
+    queryset = Car.objects.select_related("manufacturer")
 
 
 class CarDetailView(DetailView):
@@ -42,4 +42,3 @@ class DriverListView(ListView):
 
 class DriverDetailView(DetailView):
     model = Driver
-    QuerySet = Driver.objects.select_related("car")
